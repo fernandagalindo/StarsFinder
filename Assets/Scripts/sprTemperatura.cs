@@ -14,6 +14,9 @@ public class sprTemperatura : MonoBehaviour
     void Update()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(mousePos.x, transform.position.y, transform.position.z);
+        if (mousePos.x > -9.8f && mousePos.x < 4.27f)
+        {
+            transform.position = new Vector3(mousePos.x, transform.position.y, transform.position.z);
+        }
     }
 }

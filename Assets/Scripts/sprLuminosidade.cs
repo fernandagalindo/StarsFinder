@@ -14,6 +14,9 @@ public class sprLuminosidade : MonoBehaviour
     void Update()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(transform.position.x, mousePos.y, transform.position.z);
+        if (mousePos.y > -3.6 && mousePos.y < 3.9f)
+        {
+            transform.position = new Vector3(transform.position.x, mousePos.y, transform.position.z);
+        }
     }
 }

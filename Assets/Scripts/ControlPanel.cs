@@ -2,17 +2,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class ControlPanel : MonoBehaviour
 {
-    private GameObject SceneMng;
     private Image imgVisor;
     public Image imgFuelBar;
+    public GameObject telaTutorial;
+    public Toggle tutorialOn;
+    [Space(20)]
     public Sprite[] arrAstro;
+    public int valorMin = 0;
+    public int valorMax = 50;
+    private int valorSorteado;
+    [Space(20)]
     public Sprite imgLightSpeed; // Imagem da viagem no espaço
     public Text txtValScore;
     public Text txtValResources;
-    
+    private AudioClip fxFundo;
+
     // --- variáveis para animação da transição ---
     public float velocidadeDeSalto;
     private float width;
@@ -27,10 +35,14 @@ public class ControlPanel : MonoBehaviour
     private void Start()
     {
         imgVisor = GetComponentInChildren<Image>();
+        tutorialOn.onValueChanged.AddListener((x)=> tutorialOnOff());
         if (StaticVar.fuel < 14) imgVisor.sprite = arrAstro[StaticVar.imgAtiva];
         txtValScore.text = StaticVar.score.ToString();
         txtValResources.text = StaticVar.resources.ToString();
         VerifyFuel();
+        if (StaticVar.tutorialOn) tutorialOnOff();
+        Debug.Log("start");
+        AudioManager.instance.PlaySound(fxFundo);
     }
 
     public void ChangeAstro()
@@ -42,6 +54,46 @@ public class ControlPanel : MonoBehaviour
             VerifyFuel();
             //--- Chama a animação ---
             StartCoroutine(lightSpeedJump());
+        }
+    }
+
+    public void hideTutorial()
+    {
+        StartCoroutine(ShowTutorial(false));
+    }
+
+    private void tutorialOnOff()
+    {
+        if (tutorialOn.isOn)
+        {
+            StaticVar.tutorialOn = true;
+        }
+        else
+        {
+            StaticVar.tutorialOn = false;
+        }
+        StartCoroutine(ShowTutorial(StaticVar.tutorialOn));
+    }
+
+    IEnumerator ShowTutorial(bool show)
+    {
+        int speed = 10;
+        float wait = 0.005f;
+        if (show)
+        {
+            for (int x = 233; x >= -233; x = x - speed)
+            {
+                telaTutorial.transform.position = new Vector3(672, x, 0);
+                yield return new WaitForSeconds(wait);
+            }
+        }
+        else
+        {
+            for (int x = -233; x <= 233; x = x + speed)
+            {
+                telaTutorial.transform.position = new Vector3(672, x, 0);
+                yield return new WaitForSeconds(wait);
+            }
         }
     }
 
@@ -72,16 +124,34 @@ public class ControlPanel : MonoBehaviour
             height = imgVisor.sprite.rect.height;
             increaseWidth = increaseWidth + (width * porcentagem / 100);
             increaseHeight = increaseHeight + (height * porcentagem / 100);
-            velocidadeDeSalto = velocidadeDeSalto - (velocidadeDeSalto * (porcentagem*10000) / 100);
+            velocidadeDeSalto = velocidadeDeSalto - (velocidadeDeSalto * (porcentagem * 10000) / 100);
 
             //--- aguarda um tempinho e depois ajusta o tamanho da imagem
             yield return new WaitForSeconds(velocidadeDeSalto);
             imgVisor.transform.localScale = new Vector3(imgVisor.transform.localScale.x + increaseWidth, imgVisor.transform.localScale.y + increaseHeight, imgVisor.transform.localScale.z);
         }
-        
-        //--- Sorteia um astro e mostra no Visor
-        StaticVar.imgAtiva = Random.Range(0, arrAstro.Length - 1);
-        imgVisor.sprite = arrAstro[StaticVar.imgAtiva];
+
+        //--- Verifica se já visitou todas as estrelas ---
+
+
+        if (Mathf.Abs(arrAstro.Length - 0) > StaticVar.ClassifiedStars.Count)
+        {
+            while (true)
+            {
+                int numeroAleatorio = Random.Range(0, arrAstro.Length);
+                if (!StaticVar.ClassifiedStars.Contains(numeroAleatorio))
+                {
+                    StaticVar.imgAtiva = numeroAleatorio;
+                    imgVisor.sprite = arrAstro[StaticVar.imgAtiva];
+                    break;
+                }
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene("Conclusao");
+        }
+
         //--- Retorna o tamanho da imagem para seu original
         imgVisor.transform.localScale = new Vector3(widthOrig, heightOrig, imgVisor.transform.localScale.z);
         viajando = false;
@@ -95,10 +165,18 @@ public class ControlPanel : MonoBehaviour
         }
         if (StaticVar.fuel <= 0f)
         {
-            Debug.Log(StaticVar.fuel);
+            //Debug.Log(StaticVar.fuel);
             SceneManager.LoadScene("GameOver");
         }
 
         imgFuelBar.fillAmount = StaticVar.fuel / 14;
+    }
+
+    public void Abastecer()
+    {
+        imgFuelBar.color = new Color32(87, 255, 0, 255);
+        imgFuelBar.fillAmount = 100;
+        StaticVar.fuel = 14;
+        StaticVar.resources -= 10;
     }
 }
