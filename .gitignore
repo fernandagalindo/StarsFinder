@@ -9,6 +9,11 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+<<<<<<< HEAD
+=======
+/[__]Build/
+/[__]Materiais/
+>>>>>>> b7bea7847656c1a21aa3c1b4c90050bf9b502a0b
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -69,6 +74,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+<<<<<<< HEAD
 © 2021 GitHub, Inc.
 Terms
 Privacy
@@ -81,3 +87,5 @@ API
 Training
 Blog
 About
+=======
+>>>>>>> b7bea7847656c1a21aa3c1b4c90050bf9b502a0b
