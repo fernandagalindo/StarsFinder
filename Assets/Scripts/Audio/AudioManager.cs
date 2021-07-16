@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public AudioSource fxSource;
-    public AudioSource musicSource;
+    public AudioSource fxMusic;
 
     private void Awake()
     {
