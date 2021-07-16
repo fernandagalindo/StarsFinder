@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &46317322
 GameObject:
@@ -425,7 +425,7 @@ Transform:
   - {fileID: 152881878}
   - {fileID: 507136962}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &152881874
 GameObject:
@@ -1588,6 +1588,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 152400975518605234, guid: bb3c8dd17ed08fe43934df55acb3bf0a, type: 3}
+      propertyPath: fxMusic
+      value: 
+      objectReference: {fileID: 877266136}
+    - target: {fileID: 152400975518605234, guid: bb3c8dd17ed08fe43934df55acb3bf0a, type: 3}
+      propertyPath: fxSource
+      value: 
+      objectReference: {fileID: 877266136}
     - target: {fileID: 1135833283607036466, guid: bb3c8dd17ed08fe43934df55acb3bf0a, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -2137,6 +2145,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810116891}
   m_CullTransparentMesh: 1
+--- !u!82 &877266136 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4152629088425970666, guid: bb3c8dd17ed08fe43934df55acb3bf0a, type: 3}
+  m_PrefabInstance: {fileID: 534850210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &913447720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,7 +2815,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317979171
 GameObject:
@@ -3910,11 +3923,11 @@ MonoBehaviour:
   - 19992
   - 5778
   arrLumiEstrela:
-  - -103
-  - 102
-  - 105
-  - 105
-  - -104
+  - -10\u2073
+  - 10\u2072
+  - 10\u2075
+  - 10\u2075
+  - -10\u2074 L\u208s\u208o\u208l
   - 1
   arrDescEstrela:
   - "0 Betelgeuse \xE9 uma estrela famosa, vis\xEDvel nos hemisf\xE9rios Sul e Norte.
@@ -4049,7 +4062,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -4080,7 +4093,7 @@ RectTransform:
   - {fileID: 539014711}
   - {fileID: 449672212}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

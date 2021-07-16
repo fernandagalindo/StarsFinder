@@ -169,8 +169,22 @@ public class Star : MonoBehaviour
 
     private void ShowDataStar()
     {
+        //--- Cria os números em SuperScript ----
+        string[] strSS = new string[10] { "\u2070", "\u2071", "\u2072", "\u2073", "\u2074", "\u2075", "\u2076", "\u2077", "\u2078", "\u2079" };
+        for (int x = 0; x < 10; x++)
+        {
+            strSS[x] = strSS[x].ToString();
+        }
+        
+        StaticVar.imgAtiva = 4;
+        string strNum = arrLumiEstrela[StaticVar.imgAtiva].Substring(arrLumiEstrela[StaticVar.imgAtiva].Length-1);
+        int intNum = int.Parse(strNum);
+        strNum = strSS[intNum].ToString();
+
+        string strLumi = arrLumiEstrela[StaticVar.imgAtiva].Substring(0, arrLumiEstrela[StaticVar.imgAtiva].Length - 1);
+
         txtTemp.text = arrTempEstrela[StaticVar.imgAtiva] + " K";
-        txtLumi.text = arrLumiEstrela[StaticVar.imgAtiva] + " Lsol";
+        txtLumi.text = strLumi + strNum + " Lsol";
         txtClas.text = "-";
         //Debug.Log(StaticVar.imgAtiva);
     }
