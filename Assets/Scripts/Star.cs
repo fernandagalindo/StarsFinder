@@ -16,8 +16,8 @@ public class Star : MonoBehaviour
     public Text txtScor;
     public Text txtBonu;
     [Space(20)]
-    private AudioClip fxFundo;
-
+    public AudioClip Music;
+    [Space(20)]
     //--- Se acertou ou errou ---
     private bool acertou;
     public GameObject particleCeleb;
@@ -68,12 +68,9 @@ public class Star : MonoBehaviour
         adicao = 1f;
         soma = true;
 
-        AudioManager.instance.PlaySound(fxFundo);
-
-        //FindObjectOfType<"Luminaris Starship">.GetComponent < "Spaceship" > ().Aproach();
+        AudioManager.instance.PlaySound(Music);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Quando o usuário clica com o botão esquerdo
@@ -176,7 +173,6 @@ public class Star : MonoBehaviour
             strSS[x] = strSS[x].ToString();
         }
         
-        StaticVar.imgAtiva = 4;
         string strNum = arrLumiEstrela[StaticVar.imgAtiva].Substring(arrLumiEstrela[StaticVar.imgAtiva].Length-1);
         int intNum = int.Parse(strNum);
         strNum = strSS[intNum].ToString();
@@ -186,7 +182,6 @@ public class Star : MonoBehaviour
         txtTemp.text = arrTempEstrela[StaticVar.imgAtiva] + " K";
         txtLumi.text = strLumi + strNum + " Lsol";
         txtClas.text = "-";
-        //Debug.Log(StaticVar.imgAtiva);
     }
 }
 

@@ -6,33 +6,33 @@ using UnityEngine.UI;
 public class MuteSound : MonoBehaviour
 {
     public AudioClip fxSound;
-    public AudioClip fxMusic;
-    private AudioSource Music;
+    public AudioClip Music;
+    private AudioSource asMusic;
     public Slider Volume;
 
     private void Start()
     {
-        Music = GetComponent<AudioSource>();
+        asMusic = GetComponent<AudioSource>();
         //Volume = GetComponent<Slider>();
-        AudioManager.instance.PlaySound(fxMusic);
-        Music.volume = 0.1f;
+        AudioManager.instance.PlaySound(Music);
+        asMusic.volume = 0.1f;
     }
 
     public void MuteOnOff()
     {
-        bool mutado = AudioManager.instance.fxMusic.mute;
+        bool mutado = AudioManager.instance.Music.mute;
         if (mutado)
         {
-            Music.mute = false;
+            asMusic.mute = false;
         }
         else
         {
-            Music.mute = true;
+            asMusic.mute = true;
         }
     }
 
     public void MudaVolume()
     {
-        Music.volume = Volume.value;
+        asMusic.volume = Volume.value;
     }
 }

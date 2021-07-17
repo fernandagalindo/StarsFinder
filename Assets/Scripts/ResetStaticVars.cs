@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResetStaticVars : MonoBehaviour
 {
-    private AudioClip fxFundo;
+    private AudioClip Music;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +13,6 @@ public class ResetStaticVars : MonoBehaviour
         StaticVar.fuel = 14;
         StaticVar.score = 0;
         StaticVar.resources = 150;
-        AudioManager.instance.PlaySound(fxFundo);
+        AudioManager.instance.PlaySound(Music);
     }
 }

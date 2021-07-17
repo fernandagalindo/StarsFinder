@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StaticVar : MonoBehaviour
 {
+    public static string Cena;
     public static bool tutorialOn = true;
     public static int imgAtiva = -1;
     public static List<int> ClassifiedStars = new List<int>();

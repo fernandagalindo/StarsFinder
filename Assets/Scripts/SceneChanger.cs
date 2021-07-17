@@ -7,7 +7,15 @@ public class SceneChanger : MonoBehaviour
 {
     public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        if (sceneName == "VOLTAR")
+        {
+            SceneManager.LoadScene(StaticVar.Cena);
+        }
+        else
+        {
+            StaticVar.Cena = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(sceneName);
+        }
     }
     public void Exit()
     {

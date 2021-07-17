@@ -2184,7 +2184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 393.5, y: 28.9}
+  m_AnchoredPosition: {x: 393.5, y: 28.900024}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913447722
@@ -2969,7 +2969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -160, y: 25.169}
+  m_AnchoredPosition: {x: -160, y: 25.168945}
   m_SizeDelta: {x: 103.741, y: 41.276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351006001
@@ -3903,6 +3903,7 @@ MonoBehaviour:
   txtClas: {fileID: 2067925941}
   txtScor: {fileID: 516823568}
   txtBonu: {fileID: 1639036204}
+  Music: {fileID: 8300000, guid: 9950fcb40cbef884db232b73c835a696, type: 3}
   particleCeleb: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   goAcertou: {fileID: 503802776}
   particleExplosion: {fileID: 100004, guid: fb7b0526ade434043b350a180d741cf3, type: 3}
@@ -3923,11 +3924,11 @@ MonoBehaviour:
   - 19992
   - 5778
   arrLumiEstrela:
-  - -10\u2073
-  - 10\u2072
-  - 10\u2075
-  - 10\u2075
-  - -10\u2074 L\u208s\u208o\u208l
+  - -103
+  - 102
+  - 105
+  - 105
+  - -104
   - 1
   arrDescEstrela:
   - "0 Betelgeuse \xE9 uma estrela famosa, vis\xEDvel nos hemisf\xE9rios Sul e Norte.

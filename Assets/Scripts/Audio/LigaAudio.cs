@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class LigaAudio : MonoBehaviour
 {
+    public AudioClip fxSound;
+    public AudioClip Music;
     void Start()
     {
-        AudioManager.instance.fxSource.Play();
+        AudioManager.instance.PlaySound(Music);
     }
 }

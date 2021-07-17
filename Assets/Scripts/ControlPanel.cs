@@ -19,8 +19,10 @@ public class ControlPanel : MonoBehaviour
     public Sprite imgLightSpeed; // Imagem da viagem no espaço
     public Text txtValScore;
     public Text txtValResources;
-    public AudioClip fxFundo;
-
+    [Space(20)]
+    public AudioClip fxSound;
+    public AudioClip Music;
+    [Space(20)]
     // --- variáveis para animação da transição ---
     public float velocidadeDeSalto;
     private float width;
@@ -41,7 +43,7 @@ public class ControlPanel : MonoBehaviour
         txtValResources.text = StaticVar.resources.ToString();
         VerifyFuel();
         if (StaticVar.tutorialOn) tutorialOnOff();
-        AudioManager.instance.PlaySound(fxFundo);
+        AudioManager.instance.PlaySound(Music);
     }
 
     public void ChangeAstro()
