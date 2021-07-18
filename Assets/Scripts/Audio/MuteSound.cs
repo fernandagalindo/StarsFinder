@@ -34,5 +34,6 @@ public class MuteSound : MonoBehaviour
     public void MudaVolume()
     {
         asMusic.volume = Volume.value;
+        StaticVar.volume = asMusic.volume;
     }
 }

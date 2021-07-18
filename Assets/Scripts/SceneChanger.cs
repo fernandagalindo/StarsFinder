@@ -9,7 +9,13 @@ public class SceneChanger : MonoBehaviour
     {
         if (sceneName == "VOLTAR")
         {
-            SceneManager.LoadScene(StaticVar.Cena);
+            if (StaticVar.Cena == null)
+            {
+                SceneManager.LoadScene("Inicio");
+            } else
+            {
+                SceneManager.LoadScene(StaticVar.Cena);
+            }
         }
         else
         {

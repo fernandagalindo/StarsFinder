@@ -14,6 +14,7 @@ public class ControlPanel : MonoBehaviour
     public Sprite[] arrAstro;
     public int valorMin = 0;
     public int valorMax = 50;
+    public int fuelMax = 14;
     private int valorSorteado;
     [Space(20)]
     public Sprite imgLightSpeed; // Imagem da viagem no espaço
@@ -38,7 +39,7 @@ public class ControlPanel : MonoBehaviour
     {
         imgVisor = GetComponentInChildren<Image>();
         tutorialOn.onValueChanged.AddListener((x)=> tutorialOnOff());
-        if (StaticVar.fuel < 14) imgVisor.sprite = arrAstro[StaticVar.imgAtiva];
+        if (StaticVar.fuel < fuelMax) imgVisor.sprite = arrAstro[StaticVar.imgAtiva];
         txtValScore.text = StaticVar.score.ToString();
         txtValResources.text = StaticVar.resources.ToString();
         VerifyFuel();
@@ -51,7 +52,7 @@ public class ControlPanel : MonoBehaviour
         if (!viajando)
         {
             //--- Consome combustível durante a viagem ---
-            StaticVar.fuel = StaticVar.fuel - Mathf.Clamp(1, 0, 14);
+            StaticVar.fuel = StaticVar.fuel - (Mathf.Clamp(1, 0, fuelMax)*2);
             VerifyFuel();
             //--- Chama a animação ---
             StartCoroutine(lightSpeedJump());
@@ -160,7 +161,7 @@ public class ControlPanel : MonoBehaviour
 
     private void VerifyFuel()
     {
-        if (StaticVar.fuel <= 3f)
+        if (StaticVar.fuel <= 6f)
         {
             imgFuelBar.color = new Color32(255, 0, 86, 255);
         }
@@ -177,7 +178,7 @@ public class ControlPanel : MonoBehaviour
     {
         imgFuelBar.color = new Color32(87, 255, 0, 255);
         imgFuelBar.fillAmount = 100;
-        StaticVar.fuel = 14;
+        StaticVar.fuel = fuelMax;
         StaticVar.resources -= 10;
     }
 }

@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource fxSource;
     public AudioSource Music;
 
+    private AudioSource asMusic; // componete para controlar o volume
+
     private void Awake()
     {
         if (instance == null)
@@ -19,7 +21,13 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(AudioClip clip)
     {
-        fxSource.clip = clip;
-        fxSource.Play();
+        asMusic = GetComponent<AudioSource>();
+
+        if (StaticVar.volume > 0)
+        {
+            asMusic.volume = StaticVar.volume;
+            fxSource.clip = clip;
+            fxSource.Play();
+        }
     }
 }

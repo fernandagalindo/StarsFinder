@@ -166,18 +166,30 @@ public class Star : MonoBehaviour
 
     private void ShowDataStar()
     {
+        StaticVar.imgAtiva = 4;
         //--- Cria os números em SuperScript ----
         string[] strSS = new string[10] { "\u2070", "\u2071", "\u2072", "\u2073", "\u2074", "\u2075", "\u2076", "\u2077", "\u2078", "\u2079" };
         for (int x = 0; x < 10; x++)
         {
             strSS[x] = strSS[x].ToString();
         }
-        
+
+        //--- verifica qual o último caracter da string para fazer o superscript ----
+        string strIni = arrLumiEstrela[StaticVar.imgAtiva].Substring(0,1);
         string strNum = arrLumiEstrela[StaticVar.imgAtiva].Substring(arrLumiEstrela[StaticVar.imgAtiva].Length-1);
         int intNum = int.Parse(strNum);
         strNum = strSS[intNum].ToString();
 
+        //--- pega a luminosidade da estrela e retira o último caracter ---
         string strLumi = arrLumiEstrela[StaticVar.imgAtiva].Substring(0, arrLumiEstrela[StaticVar.imgAtiva].Length - 1);
+
+        //--- verifica se o número é negativo para posicionar o sinal no lugar certo ---
+        int tam = strLumi.Length - 1;
+        if (strIni == "-")
+        {
+            strNum = "-" + strNum;
+            strLumi = strLumi.Substring(1, tam);
+        }
 
         txtTemp.text = arrTempEstrela[StaticVar.imgAtiva] + " K";
         txtLumi.text = strLumi + strNum + " Lsol";
