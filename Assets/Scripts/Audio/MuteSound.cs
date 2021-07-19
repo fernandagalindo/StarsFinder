@@ -16,6 +16,7 @@ public class MuteSound : MonoBehaviour
         //Volume = GetComponent<Slider>();
         AudioManager.instance.PlaySound(Music);
         asMusic.volume = 0.1f;
+        Volume.value = StaticVar.volume;
     }
 
     public void MuteOnOff()

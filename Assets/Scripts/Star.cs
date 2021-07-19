@@ -145,13 +145,16 @@ public class Star : MonoBehaviour
     
     private void VerificaClassificacao(int playerClass)
     {
+        //--- os dados sobre a qual classificação pertence cada estrela ---
+        //--- podem ser colocados na Unity, juntamente com os outros ---
         acertou = false;
-        if (StaticVar.imgAtiva == 0 && playerClass == 5) acertou = true; // estrela anã branca
-        else if (StaticVar.imgAtiva == 1 && playerClass == 2) acertou = true; // betelgeuse
-        else if (StaticVar.imgAtiva == 2 && playerClass == 3) acertou = true; // ESA image
-        else if (StaticVar.imgAtiva == 3 && playerClass == 4) acertou = true; // ESA pinpoint
-        else if (StaticVar.imgAtiva == 4 && playerClass == 5) acertou = true; // GSFC
-        else if (StaticVar.imgAtiva == 5 && playerClass == 1) acertou = true; // Sol
+        if (StaticVar.imgAtiva == 0 && playerClass == 1) acertou = true; // estrela anã branca
+        else if (StaticVar.imgAtiva == 1 && playerClass == 1) acertou = true; // betelgeuse
+        else if (StaticVar.imgAtiva == 2 && playerClass == 2) acertou = true; // ESA image
+        else if (StaticVar.imgAtiva == 3 && playerClass == 5) acertou = true; // ESA pinpoint
+        else if (StaticVar.imgAtiva == 4 && playerClass == 4) acertou = true; // GSFC
+        else if (StaticVar.imgAtiva == 5 && playerClass == 3) acertou = true; // Sol
+        else if (StaticVar.imgAtiva == 6 && playerClass == 2) acertou = true; // Sol
     }
 
     IEnumerator BlinkText(Text textToBlink)
@@ -166,34 +169,41 @@ public class Star : MonoBehaviour
 
     private void ShowDataStar()
     {
-        StaticVar.imgAtiva = 4;
-        //--- Cria os números em SuperScript ----
-        string[] strSS = new string[10] { "\u2070", "\u2071", "\u2072", "\u2073", "\u2074", "\u2075", "\u2076", "\u2077", "\u2078", "\u2079" };
-        for (int x = 0; x < 10; x++)
+        if (arrLumiEstrela[StaticVar.imgAtiva] != "1") //--- 1 unidade solar não precisa de notação científica ---
         {
-            strSS[x] = strSS[x].ToString();
-        }
+            //--- Cria os números em SuperScript ----
+            string[] strSS = new string[10] { "\u2070", "\u2071", "\u2072", "\u2073", "\u2074", "\u2075", "\u2076", "\u2077", "\u2078", "\u2079" };
+            for (int x = 0; x < 10; x++)
+            {
+                strSS[x] = strSS[x].ToString();
+            }
 
-        //--- verifica qual o último caracter da string para fazer o superscript ----
-        string strIni = arrLumiEstrela[StaticVar.imgAtiva].Substring(0,1);
-        string strNum = arrLumiEstrela[StaticVar.imgAtiva].Substring(arrLumiEstrela[StaticVar.imgAtiva].Length-1);
-        int intNum = int.Parse(strNum);
-        strNum = strSS[intNum].ToString();
+            //--- verifica qual o último caracter da string para fazer o superscript ----
+            string strIni = arrLumiEstrela[StaticVar.imgAtiva].Substring(0, 1);
+            string strNum = arrLumiEstrela[StaticVar.imgAtiva].Substring(arrLumiEstrela[StaticVar.imgAtiva].Length - 1);
+            int intNum = int.Parse(strNum);
+            strNum = strSS[intNum].ToString();
 
-        //--- pega a luminosidade da estrela e retira o último caracter ---
-        string strLumi = arrLumiEstrela[StaticVar.imgAtiva].Substring(0, arrLumiEstrela[StaticVar.imgAtiva].Length - 1);
+            //--- pega a luminosidade da estrela e retira o último caracter ---
+            string strLumi = arrLumiEstrela[StaticVar.imgAtiva].Substring(0, arrLumiEstrela[StaticVar.imgAtiva].Length - 1);
 
-        //--- verifica se o número é negativo para posicionar o sinal no lugar certo ---
-        int tam = strLumi.Length - 1;
-        if (strIni == "-")
+            //--- verifica se o número é negativo para posicionar o sinal no lugar certo ---
+            int tam = strLumi.Length - 1;
+            if (strIni == "-")
+            {
+                strNum = "-" + strNum;
+                strLumi = strLumi.Substring(1, tam);
+            }
+
+            txtTemp.text = arrTempEstrela[StaticVar.imgAtiva] + " K";
+            txtLumi.text = strLumi + strNum + " Lsol";
+            txtClas.text = "-";
+        } else
         {
-            strNum = "-" + strNum;
-            strLumi = strLumi.Substring(1, tam);
+            txtTemp.text = arrTempEstrela[StaticVar.imgAtiva] + " K";
+            txtLumi.text = arrLumiEstrela[StaticVar.imgAtiva] + " Lsol";
+            txtClas.text = "-";
         }
-
-        txtTemp.text = arrTempEstrela[StaticVar.imgAtiva] + " K";
-        txtLumi.text = strLumi + strNum + " Lsol";
-        txtClas.text = "-";
     }
 }
 

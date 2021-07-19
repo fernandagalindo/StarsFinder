@@ -10,6 +10,7 @@ public class StaticVar : MonoBehaviour
     public static List<int> ClassifiedStars = new List<int>();
     public static float fuel = 14f;
     public static int score = 0;
-    public static int resources = 150;
-    public static float volume = 0.1f;
+    public static int resources = 50;
+    public static float timeRemaining = 90; // tempo em segundos
+    public static float volume = 0.05f;
 }

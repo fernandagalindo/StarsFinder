@@ -1936,8 +1936,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 331047469}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1945,18 +1945,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: VOLTAR
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2053569751}
-        m_TargetAssemblyTypeName: WWW, Assembly-CSharp
-        m_MethodName: AbreSite
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: http://fernandagalindo.net
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1518150255}
@@ -2009,6 +1997,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790748549}
   m_CullTransparentMesh: 1
+--- !u!1 &1816222232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1528355928008714149, guid: bb3c8dd17ed08fe43934df55acb3bf0a, type: 3}
+  m_PrefabInstance: {fileID: 1518150254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1816222233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816222232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1e0f3aa2b9c0a41b1be3c8633a8ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxSound: {fileID: 8300000, guid: eb29844b03df258489a10c01c6e51552, type: 3}
+  Music: {fileID: 8300000, guid: 9950fcb40cbef884db232b73c835a696, type: 3}
 --- !u!1 &1832979523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2436,5 +2443,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5af7965cabff644aba594f4d5940b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fxSound: {fileID: 8300000, guid: eb29844b03df258489a10c01c6e51552, type: 3}
-  Music: {fileID: 8300000, guid: 9950fcb40cbef884db232b73c835a696, type: 3}

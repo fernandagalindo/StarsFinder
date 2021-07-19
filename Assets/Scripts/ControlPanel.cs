@@ -21,9 +21,6 @@ public class ControlPanel : MonoBehaviour
     public Text txtValScore;
     public Text txtValResources;
     [Space(20)]
-    public AudioClip fxSound;
-    public AudioClip Music;
-    [Space(20)]
     // --- variáveis para animação da transição ---
     public float velocidadeDeSalto;
     private float width;
@@ -38,13 +35,11 @@ public class ControlPanel : MonoBehaviour
     private void Start()
     {
         imgVisor = GetComponentInChildren<Image>();
-        tutorialOn.onValueChanged.AddListener((x)=> tutorialOnOff());
         if (StaticVar.fuel < fuelMax) imgVisor.sprite = arrAstro[StaticVar.imgAtiva];
         txtValScore.text = StaticVar.score.ToString();
         txtValResources.text = StaticVar.resources.ToString();
         VerifyFuel();
         if (StaticVar.tutorialOn) tutorialOnOff();
-        AudioManager.instance.PlaySound(Music);
     }
 
     public void ChangeAstro()
@@ -64,8 +59,9 @@ public class ControlPanel : MonoBehaviour
         StartCoroutine(ShowTutorial(false));
     }
 
-    private void tutorialOnOff()
+    public void tutorialOnOff()
     {
+        //Debug.Log(tutorialOn.isOn);
         if (tutorialOn.isOn)
         {
             StaticVar.tutorialOn = true;
@@ -83,17 +79,17 @@ public class ControlPanel : MonoBehaviour
         float wait = 0.005f;
         if (show)
         {
-            for (int x = 233; x >= -233; x = x - speed)
+            for (int x = 1290; x >= 824; x = x - speed)
             {
-                telaTutorial.transform.position = new Vector3(672, x, 0);
+                telaTutorial.transform.position = new Vector3(960, x, 0);
                 yield return new WaitForSeconds(wait);
             }
         }
         else
         {
-            for (int x = -233; x <= 233; x = x + speed)
+            for (int x = 824; x <= 1500; x = x + speed)
             {
-                telaTutorial.transform.position = new Vector3(672, x, 0);
+                telaTutorial.transform.position = new Vector3(960, x, 0);
                 yield return new WaitForSeconds(wait);
             }
         }
@@ -176,9 +172,13 @@ public class ControlPanel : MonoBehaviour
 
     public void Abastecer()
     {
-        imgFuelBar.color = new Color32(87, 255, 0, 255);
-        imgFuelBar.fillAmount = 100;
-        StaticVar.fuel = fuelMax;
-        StaticVar.resources -= 10;
+        if (StaticVar.resources > 10)
+        {
+            imgFuelBar.color = new Color32(87, 255, 0, 255);
+            imgFuelBar.fillAmount = 100;
+            StaticVar.fuel = fuelMax;
+            StaticVar.resources -= 10;
+            txtValResources.text = StaticVar.resources.ToString();
+        }
     }
 }

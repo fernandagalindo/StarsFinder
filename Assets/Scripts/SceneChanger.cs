@@ -7,9 +7,10 @@ public class SceneChanger : MonoBehaviour
 {
     public void ChangeScene(string sceneName)
     {
+        //Debug.Log(StaticVar.Cena);
         if (sceneName == "VOLTAR")
         {
-            if (StaticVar.Cena == null)
+            if (StaticVar.Cena == null || StaticVar.Cena == "Null")
             {
                 SceneManager.LoadScene("Inicio");
             } else
@@ -20,6 +21,7 @@ public class SceneChanger : MonoBehaviour
         else
         {
             StaticVar.Cena = SceneManager.GetActiveScene().name;
+            //Debug.Log(StaticVar.Cena);
             SceneManager.LoadScene(sceneName);
         }
     }

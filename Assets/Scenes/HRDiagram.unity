@@ -875,7 +875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -58, y: 18}
+  m_AnchoredPosition: {x: -58, y: 79}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &335699391
@@ -911,11 +911,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Errou!
-
-    Tente
-
-    novamente'
+  m_Text: Errou!
 --- !u!222 &335699392
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1404,7 +1400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 218, y: 14}
+  m_AnchoredPosition: {x: 141, y: 71}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &507136959
@@ -2925,6 +2921,7 @@ RectTransform:
   m_Children:
   - {fileID: 312902007}
   - {fileID: 335699390}
+  - {fileID: 1704096331}
   m_Father: {fileID: 1939447847}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2969,7 +2966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -160, y: 25.168945}
+  m_AnchoredPosition: {x: -160, y: 40}
   m_SizeDelta: {x: 103.741, y: 41.276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351006001
@@ -3330,8 +3327,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289.368, y: -24.846}
-  m_SizeDelta: {x: 303.849, y: 215.696}
+  m_AnchoredPosition: {x: 353.84113, y: -84.340935}
+  m_SizeDelta: {x: 510.1178, y: 334.6859}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1639036204
 MonoBehaviour:
@@ -3519,6 +3516,85 @@ PolygonCollider2D:
       - {x: -1.7880706, y: -2.9227576}
       - {x: 1.1429552, y: -5.9091663}
       - {x: 6.7822824, y: -5.9876285}
+--- !u!1 &1704096330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1704096331}
+  - component: {fileID: 1704096333}
+  - component: {fileID: 1704096332}
+  m_Layer: 5
+  m_Name: txtTenteNovamente
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1704096331
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704096330}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1324994861}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -57.834, y: -3.6481}
+  m_SizeDelta: {x: 215.67, y: 135.2961}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1704096332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704096330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8af2b515206ff6b4185762ebceaefd53, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Tente novamente clicando em VOLTAR
+--- !u!222 &1704096333
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704096330}
+  m_CullTransparentMesh: 1
 --- !u!1 &1743552515
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,45 +3986,86 @@ MonoBehaviour:
   goErrou: {fileID: 1324994860}
   tutorial: {fileID: 539014710}
   arrNomeEstrela:
-  - "An\xE3 Branca"
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Sirius A
+  - Sol
+  - U Cam
+  - AR Scorpii
+  - V838 Monocerotis
+  - Thors Helmet
+  - U Hydrae
   arrTempEstrela:
-  - 20568
-  - 3500
-  - 24005
-  - 3000
-  - 19992
-  - 5778
+  - 9.940
+  - 5.778
+  - 3.000
+  - 28.000
+  - 3.270
+  - 35.000
+  - 3.200
   arrLumiEstrela:
-  - -103
   - 102
-  - 105
-  - 105
-  - -104
   - 1
+  - 102
+  - -103
+  - 105
+  - 106
+  - 103
   arrDescEstrela:
-  - "0 Betelgeuse \xE9 uma estrela famosa, vis\xEDvel nos hemisf\xE9rios Sul e Norte.
-    Encontra-se na constela\xE7\xE3o de \xD3rion e est\xE1 perto da fase final de
-    sua vida."
-  - "1 Betelgeuse \xE9 uma estrela famosa, vis\xEDvel nos hemisf\xE9rios Sul e Norte.
-    Encontra-se na constela\xE7\xE3o de \xD3rion e est\xE1 perto da fase final de
-    sua vida."
-  - "2 Betelgeuse \xE9 uma estrela famosa, vis\xEDvel nos hemisf\xE9rios Sul e Norte.
-    Encontra-se na constela\xE7\xE3o de \xD3rion e est\xE1 perto da fase final de
-    sua vida."
-  - "3 Betelgeuse \xE9 uma estrela famosa, vis\xEDvel nos hemisf\xE9rios Sul e Norte.
-    Encontra-se na constela\xE7\xE3o de \xD3rion e est\xE1 perto da fase final de
-    sua vida."
-  - "4 Betelgeuse \xE9 uma estrela famosa, vis\xEDvel nos hemisf\xE9rios Sul e Norte.
-    Encontra-se na constela\xE7\xE3o de \xD3rion e est\xE1 perto da fase final de
-    sua vida."
-  - "5 Betelgeuse \xE9 uma estrela famosa, vis\xEDvel nos hemisf\xE9rios Sul e Norte.
-    Encontra-se na constela\xE7\xE3o de \xD3rion e est\xE1 perto da fase final de
-    sua vida."
+  - "Sirius \xE9 a estrela mais brilhante do c\xE9u noturno. Ela brilha na constela\xE7\xE3o
+    de Canis Major, e \xE9 vis\xEDvel para a maior parte dos observadores no c\xE9u
+    do Hemisf\xE9rio Norte durante os meses de inverno. No Hemisf\xE9rio Sul, a estrela
+    Sirius \xE9 vis\xEDvel para todos os locais ao norte do C\xEDrculo Ant\xE1rtico
+    durante o ver\xE3o. Localizada a uma dist\xE2ncia aproximada de 8.6 anos-luz
+    do Sol, Sirius \xE9 uma das estrelas mais pr\xF3ximas. Seu brilho intenso no
+    c\xE9u \xE9 uma combina\xE7\xE3o da sua proximidade com o seu brilho intr\xEDnseco.\\r\\n\\r\\n
+    fonte: https://epod.usra.edu/blog/2013/01/the-brightest-star.html"
+  - "O\_Sol\_\xE9 a\_estrela\_central do\_Sistema Solar. Todos os outros corpos do
+    Sistema Solar, como\_planetas,\_planetas an\xF5es,\_asteroides,\_cometas\_e\_poeira,
+    bem como todos os\_sat\xE9lites\_associados a estes corpos, giram ao seu redor.
+    Respons\xE1vel por 99,86% da\_massa\_do Sistema Solar, o Sol possui uma massa
+    332\_900 vezes maior que a da\_Terra, e um\_volume\_1\_300\_000 vezes maior que
+    o do nosso planeta.\\r\\n\\r\\nFonte: https://pt.wikipedia.org/wiki/Sol"
+  - "Camelopardalis, ou U Cam, \xE9 uma estrela Gigante Vermelha que est\xE1 chegando
+    ao fim de sua vida. \xC0 medida que as estrelas ficam sem combust\xEDvel, elas
+    se tornam inst\xE1veis. A cada poucos milhares de anos, o U Cam tosse uma concha
+    quase esf\xE9rica de g\xE1s enquanto uma camada de h\xE9lio em torno de seu n\xFAcleo
+    come\xE7a a se fundir. O g\xE1s ejetado na \xFAltima erup\xE7\xE3o da estrela
+    \xE9 claramente vis\xEDvel nesta imagem como uma leve bolha de g\xE1s ao redor
+    da estrela.\\r\\n\\r\\nFonte:https://www.nasa.gov/multimedia/imagegallery/image_feature_2302.html"
+  - "An\xE3s brancas s\xE3o o resultado da morte de estrelas como o nosso Sol, e
+    \xE9 o prov\xE1vel destino que ele ter\xE1 daqui 5 bilh\xF5es de anos. Nessa
+    imagem vemos um novo tipo de estrela bin\xE1ria ex\xF3tica (duas estrelas orbitando
+    uma a outra). Astr\xF4nomos que usam o telesc\xF3pio espacial Hubble da NASA
+    / ESA, junto com outros telesc\xF3pios terrestres e espaciais, fizeram essa descoberta:
+    no sistema AR Scorpii, uma estrela an\xE3 branca ( a menorzinha ) que gira rapidamente
+    est\xE1 fornecendo el\xE9trons quase \xE0 mesma velocidade da luz a sua companheira,
+    uma an\xE3 marrom.\\r\\n\\r\\nFonte:https://www.esa.int/About_Us/ESAC/White_Dwarf_Lashes_Red_Dwarf_With_Mystery_Ray_HEIC1616"
+  - "Esta imagem do telesc\xF3pio espacial Hubble da estrela V838 Monocerotis revela
+    mudan\xE7as dram\xE1ticas na ilumina\xE7\xE3o das estruturas de nuvens empoeiradas
+    ao redor. O efeito, chamado eco de luz, revelou padr\xF5es de poeira nunca antes
+    vistos quando a estrela brilhou repentinamente por v\xE1rias semanas no in\xEDcio
+    de 2002.\\r\\n\\r\\n Um eco de luz \xE9 a luz de uma explos\xE3o estelar ecoando
+    na poeira ao redor da estrela que produz energia suficiente em um breve flash
+    para iluminar a poeira circundante. A estrela presumivelmente ejetou as cascas
+    de poeira iluminadas em explos\xF5es anteriores. A luz da \xFAltima explos\xE3o
+    viaja at\xE9 a poeira e \xE9 refletida na Terra.\\r\\n\\r\\nFonte:https://www.nasa.gov/multimedia/imagegallery/image_feature_784.html"
+  - "Conhecida com o Capacete de Thor, esta nebulosa situada pr\xF3xima \xE0 constela\xE7\xE3o
+    de C\xE3o Maior \xE9 formada por ventos estelares soprados por uma estrela do
+    tipo Wolf-Rayet em seu centro. Conhecida por Gigante Azul, esse \xE9 um tipo
+    de estrela extremamente massiva e quente, encontrando-se pr\xF3ximo a fase de
+    pr\xE9-supernova, quase no final de sua vida. A cor azul vem da forte emiss\xE3o
+    de \xE1tomos de \xF3xig\xEAnio.\\r\\n\\r\\nFonte:https://apod.nasa.gov/apod/ap171101.html
+    https://spacetoday.com.br/o-capacete-do-thor-uma-bela-nebulosa-de-emissao/"
+  - "A impress\xE3o deste artista mostra uma estrela \"gigante vermelha\" ejetando
+    mat\xE9ria. Estrelas com massas pr\xF3ximas \xE0 de nosso Sol tornam-se estrelas
+    \"gigantes vermelhas\" nos est\xE1gios posteriores de sua vida. O raio de uma
+    estrela gigante vermelha se expande a um tamanho compar\xE1vel \xE0 \xF3rbita
+    da Terra, e as mat\xE9rias na superf\xEDcie da estrela fluem para fora e escapam.
+    A poeira \xE9 formada no g\xE1s que flui quando a temperatura diminui. Essa mistura
+    de g\xE1s e poeira \xE9 soprada para longe da estrela central e se expande para
+    o espa\xE7o. A nuvem de poeira vista pelo sat\xE9lite infravermelho AKARI em
+    U Hydrae foi formada h\xE1 cerca de 10.000 anos por uma intensa eje\xE7\xE3o
+    de massa e atingiu uma extens\xE3o de cerca de 0,3 anos-luz.\\r\\n\\r\\nFonte:
+    https://www.esa.int/About_Us/ESAC/White_Dwarf_Lashes_Red_Dwarf_With_Mystery_Ray_HEIC1616"
   speed: 1
 --- !u!58 &1914696110
 CircleCollider2D:
@@ -4214,8 +4331,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 293.121, y: -19.139988}
-  m_SizeDelta: {x: 439.983, y: 364.204}
+  m_AnchoredPosition: {x: 354.54, y: -78.38811}
+  m_SizeDelta: {x: 677.09, y: 482.7003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041450782
 MonoBehaviour:
