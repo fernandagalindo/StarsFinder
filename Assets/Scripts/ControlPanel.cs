@@ -35,11 +35,20 @@ public class ControlPanel : MonoBehaviour
     private void Start()
     {
         imgVisor = GetComponentInChildren<Image>();
-        if (StaticVar.fuel < fuelMax) imgVisor.sprite = arrAstro[StaticVar.imgAtiva];
+        if (StaticVar.ClassifiedStars.Contains(StaticVar.imgAtiva))
+        {
+            //--- essa estrela já foi classificada ---
+            StaticVar.imgAtiva = -1;
+        }
+        if (StaticVar.fuel < fuelMax && StaticVar.imgAtiva > -1) imgVisor.sprite = arrAstro[StaticVar.imgAtiva];
         txtValScore.text = StaticVar.score.ToString();
         txtValResources.text = StaticVar.resources.ToString();
         VerifyFuel();
+
+        //--- atribui o valor da variável static para definir o toogle ---
+        tutorialOn.isOn = StaticVar.tutorialOn;
         if (StaticVar.tutorialOn) tutorialOnOff();
+        else telaTutorial.SetActive(false);
     }
 
     public void ChangeAstro()
@@ -47,7 +56,7 @@ public class ControlPanel : MonoBehaviour
         if (!viajando)
         {
             //--- Consome combustível durante a viagem ---
-            StaticVar.fuel = StaticVar.fuel - (Mathf.Clamp(1, 0, fuelMax)*2);
+            StaticVar.fuel = StaticVar.fuel - (Mathf.Clamp(1, 0, fuelMax)*1); //--- multiplica por 2 para fuel acabar mais rápido
             VerifyFuel();
             //--- Chama a animação ---
             StartCoroutine(lightSpeedJump());

@@ -78,7 +78,7 @@ public class Star : MonoBehaviour
         {
             if (txtClas.text == "-")
             {
-                StaticVar.resources -= 10; //--- Representa um gasto de recursos a cada expedição e classificação
+                //StaticVar.resources -= 10; //--- Representa um gasto de recursos a cada expedição e classificação
                 VerificaClassificacao(intClass);
                 if (acertou)
                 {
@@ -131,6 +131,13 @@ public class Star : MonoBehaviour
         float v = Input.GetAxis("Mouse Y");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         rb2D.position = mousePos;
+
+        VerificaContagem();
+    }
+
+    private void VerificaContagem()
+    {
+        if (StaticVar.timeRemaining <= 0) StaticVar.resources = 50;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -175,7 +182,9 @@ public class Star : MonoBehaviour
             string[] strSS = new string[10] { "\u2070", "\u2071", "\u2072", "\u2073", "\u2074", "\u2075", "\u2076", "\u2077", "\u2078", "\u2079" };
             for (int x = 0; x < 10; x++)
             {
-                strSS[x] = strSS[x].ToString();
+                if (x != 2 && x != 3) strSS[x] = strSS[x].ToString();
+                if (x == 2) strSS[x] = "²";
+                if (x == 3) strSS[x] = "³";
             }
 
             //--- verifica qual o último caracter da string para fazer o superscript ----
@@ -183,6 +192,7 @@ public class Star : MonoBehaviour
             string strNum = arrLumiEstrela[StaticVar.imgAtiva].Substring(arrLumiEstrela[StaticVar.imgAtiva].Length - 1);
             int intNum = int.Parse(strNum);
             strNum = strSS[intNum].ToString();
+
 
             //--- pega a luminosidade da estrela e retira o último caracter ---
             string strLumi = arrLumiEstrela[StaticVar.imgAtiva].Substring(0, arrLumiEstrela[StaticVar.imgAtiva].Length - 1);

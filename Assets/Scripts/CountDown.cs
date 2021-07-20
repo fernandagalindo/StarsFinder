@@ -17,6 +17,11 @@ public class CountDown : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        ContRegressiva();
+    }
+
+    public void ContRegressiva()
+    {
         StaticVar.timeRemaining -= Time.fixedDeltaTime;
         if (StaticVar.timeRemaining <= 0)
         {
