@@ -26,9 +26,9 @@ public class CountDown : MonoBehaviour
         if (StaticVar.timeRemaining <= 0)
         {
             //--- recebe mais recursos ---
-            StaticVar.resources = 50;
+            StaticVar.resources = StaticVar.cngResources;
             txtRecursos.text = StaticVar.resources.ToString();
-            StaticVar.timeRemaining = 90;
+            StaticVar.timeRemaining = StaticVar.cngRemainingTime;
         }
         txtTime.text = FormatTime(StaticVar.timeRemaining);
     }

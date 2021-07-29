@@ -10,9 +10,10 @@ public class ResetStaticVars : MonoBehaviour
     {
         StaticVar.imgAtiva = -1;
         StaticVar.ClassifiedStars = new List<int>();
+        StaticVar.totClassificadas = 0;
         StaticVar.fuel = 14;
         StaticVar.score = 0;
-        StaticVar.resources = 150;
+        StaticVar.resources = StaticVar.cngResources;
         AudioManager.instance.PlaySound(Music);
     }
 }

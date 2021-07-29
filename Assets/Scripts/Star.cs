@@ -64,6 +64,10 @@ public class Star : MonoBehaviour
         //--- Mostra a temperatura e a Luminosidade da estrela a classificar ---
         ShowDataStar();
 
+        //--- Consumo de combustível e de recursos enquanto a estrela é classificada ---
+        StaticVar.resources -= 10; //--- Representa um gasto de recursos a cada expedição e classificação
+        StaticVar.fuel = StaticVar.fuel - (Mathf.Clamp(1, 0, StaticVar.cngMaxFuel) * 1.1f); //--- multiplica por 2 para fuel acabar mais rápido
+
         intClass = -1;
         adicao = 1f;
         soma = true;
@@ -78,10 +82,10 @@ public class Star : MonoBehaviour
         {
             if (txtClas.text == "-")
             {
-                //StaticVar.resources -= 10; //--- Representa um gasto de recursos a cada expedição e classificação
                 VerificaClassificacao(intClass);
                 if (acertou)
                 {
+                    StaticVar.totClassificadas++;
                     StaticVar.score += 5; //--- Soma 5 pontos ao Score
                     StaticVar.ClassifiedStars.Add(StaticVar.imgAtiva);
                     Instantiate(particleCeleb, rb2D.position, rb2D.transform.rotation);
@@ -137,7 +141,7 @@ public class Star : MonoBehaviour
 
     private void VerificaContagem()
     {
-        if (StaticVar.timeRemaining <= 0) StaticVar.resources = 50;
+        if (StaticVar.timeRemaining <= 0) StaticVar.resources = StaticVar.cngResources;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

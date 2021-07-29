@@ -2,19 +2,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 public class ControlPanel : MonoBehaviour
 {
     private Image imgVisor;
     public Image imgFuelBar;
     public GameObject telaTutorial;
-    public Toggle tutorialOn;
+    [Space(20)]
+    public Button btoClassifica;
+    public Button btoViajar;
     [Space(20)]
     public Sprite[] arrAstro;
     public int valorMin = 0;
-    public int valorMax = 50;
-    public int fuelMax = 14;
+    public int valorMax = StaticVar.cngResources;
     private int valorSorteado;
     [Space(20)]
     public Sprite imgLightSpeed; // Imagem da viagem no espaço
@@ -34,21 +34,34 @@ public class ControlPanel : MonoBehaviour
 
     private void Start()
     {
+        if (StaticVar.totClassificadas >= 3) SceneManager.LoadScene("Conclusao");
+        telaTutorial.SetActive(false);
+
         imgVisor = GetComponentInChildren<Image>();
         if (StaticVar.ClassifiedStars.Contains(StaticVar.imgAtiva))
         {
             //--- essa estrela já foi classificada ---
             StaticVar.imgAtiva = -1;
         }
-        if (StaticVar.fuel < fuelMax && StaticVar.imgAtiva > -1) imgVisor.sprite = arrAstro[StaticVar.imgAtiva];
+        if (StaticVar.fuel < StaticVar.cngMaxFuel && StaticVar.imgAtiva > -1)
+        {
+            imgVisor.sprite = arrAstro[StaticVar.imgAtiva]; 
+        }
+
         txtValScore.text = StaticVar.score.ToString();
         txtValResources.text = StaticVar.resources.ToString();
         VerifyFuel();
 
-        //--- atribui o valor da variável static para definir o toogle ---
-        tutorialOn.isOn = StaticVar.tutorialOn;
-        if (StaticVar.tutorialOn) tutorialOnOff();
-        else telaTutorial.SetActive(false);
+        // --- Inicializa o tutorial conforme o gerenciador ---
+        if (StaticVar.imgAtiva == -1)
+        {
+            btoClassifica.interactable = false;
+            //btoViajar.interactable = true;
+        } else
+        {
+            btoViajar.interactable = false;
+        }
+        if (StaticVar.tutorialOn) StartCoroutine(ShowTutorial(StaticVar.tutorialOn));
     }
 
     public void ChangeAstro()
@@ -56,8 +69,13 @@ public class ControlPanel : MonoBehaviour
         if (!viajando)
         {
             //--- Consome combustível durante a viagem ---
-            StaticVar.fuel = StaticVar.fuel - (Mathf.Clamp(1, 0, fuelMax)*1); //--- multiplica por 2 para fuel acabar mais rápido
+            StaticVar.fuel = StaticVar.fuel - (Mathf.Clamp(1, 0, StaticVar.cngMaxFuel)*3); //--- multiplica por 2 para fuel acabar mais rápido
             VerifyFuel();
+
+            //--- Ativa o botão de classificação, e desativa o de viajar ---
+            btoClassifica.interactable = true;
+            btoViajar.interactable = false;
+
             //--- Chama a animação ---
             StartCoroutine(lightSpeedJump());
         }
@@ -68,39 +86,36 @@ public class ControlPanel : MonoBehaviour
         StartCoroutine(ShowTutorial(false));
     }
 
-    public void tutorialOnOff()
+    IEnumerator ShowTutorial(bool show)
     {
-        //Debug.Log(tutorialOn.isOn);
-        if (tutorialOn.isOn)
+        // --- valores para versão PC ---
+        int distancia = (int)(Canvas.FindObjectOfType<Button>().transform.position.y - imgFuelBar.transform.position.y);
+        int Ymaior = (int)(imgFuelBar.transform.position.y)+(distancia*2);
+        int Ymenor = Ymaior - distancia;
+        int Xfixo = (int)imgFuelBar.transform.position.x;
+
+        int speed = 10;
+        if (distancia < 400) speed = 5;
+        float wait = 0.005f;
+        if (show)
         {
             StaticVar.tutorialOn = true;
+            telaTutorial.SetActive(true);
+            for (int y = Ymaior; y >= Ymenor; y = y - speed)
+            {
+                telaTutorial.transform.position = new Vector3(Xfixo, y, 0);
+                yield return new WaitForSeconds(wait);
+            }
         }
         else
         {
             StaticVar.tutorialOn = false;
-        }
-        StartCoroutine(ShowTutorial(StaticVar.tutorialOn));
-    }
-
-    IEnumerator ShowTutorial(bool show)
-    {
-        int speed = 10;
-        float wait = 0.005f;
-        if (show)
-        {
-            for (int x = 1290; x >= 824; x = x - speed)
+            for (int y = Ymenor; y <= Ymaior; y = y + speed)
             {
-                telaTutorial.transform.position = new Vector3(960, x, 0);
+                telaTutorial.transform.position = new Vector3(Xfixo, y, 0);
                 yield return new WaitForSeconds(wait);
             }
-        }
-        else
-        {
-            for (int x = 824; x <= 1500; x = x + speed)
-            {
-                telaTutorial.transform.position = new Vector3(960, x, 0);
-                yield return new WaitForSeconds(wait);
-            }
+            telaTutorial.SetActive(false);
         }
     }
 
@@ -141,7 +156,8 @@ public class ControlPanel : MonoBehaviour
         //--- Verifica se já visitou todas as estrelas ---
 
 
-        if (Mathf.Abs(arrAstro.Length - 0) > StaticVar.ClassifiedStars.Count)
+        //if (Mathf.Abs(arrAstro.Length - 0) > StaticVar.ClassifiedStars.Count)
+        if (StaticVar.totClassificadas < 3)
         {
             while (true)
             {
@@ -185,7 +201,7 @@ public class ControlPanel : MonoBehaviour
         {
             imgFuelBar.color = new Color32(87, 255, 0, 255);
             imgFuelBar.fillAmount = 100;
-            StaticVar.fuel = fuelMax;
+            StaticVar.fuel = StaticVar.cngMaxFuel;
             StaticVar.resources -= 10;
             txtValResources.text = StaticVar.resources.ToString();
         }
