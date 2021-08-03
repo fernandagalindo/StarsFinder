@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 337685362}
   - component: {fileID: 337685361}
   m_Layer: 5
-  m_Name: imgAcertou
+  m_Name: imgStarAcertou
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,7 +1086,7 @@ GameObject:
   - component: {fileID: 460911776}
   - component: {fileID: 460911775}
   m_Layer: 5
-  m_Name: imgFundo
+  m_Name: imgStarFundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1260,8 +1260,8 @@ RectTransform:
   - {fileID: 460911774}
   - {fileID: 1401639804}
   - {fileID: 337685360}
-  - {fileID: 1639036203}
   - {fileID: 572967449}
+  - {fileID: 1639036203}
   m_Father: {fileID: 1560381102}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1600,7 +1600,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 503802777}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3083,7 +3083,7 @@ GameObject:
   - component: {fileID: 1401639806}
   - component: {fileID: 1401639805}
   m_Layer: 5
-  m_Name: imgAcertouSombra
+  m_Name: imgStarAcertouSombra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3358,7 +3358,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 503802777}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
